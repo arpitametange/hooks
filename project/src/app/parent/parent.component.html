@@ -1,0 +1,7 @@
+<p>parent works!</p>
+<div><p>This is the parent content</p></div>
+
+<!-- #child used to show this data in child -->
+<app-child [input]="data">  <h1 #child>This is child content coming from parent component.</h1>  
+</app-child>
+<button (click)="onchange()">chnagecolor</button>
