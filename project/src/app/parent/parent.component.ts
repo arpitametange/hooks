@@ -11,4 +11,8 @@ export class ParentComponent {
   onchange(){
     this.data='blue'
   }
+  anothier(data:any){
+    console.log('methid',data);
+    
+  }
 }

@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, Component, ContentChild, ElementRef, Input } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, ContentChild, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -8,12 +8,17 @@ import { AfterContentChecked, AfterContentInit, Component, ContentChild, Element
 export class ChildComponent implements AfterContentInit,AfterContentChecked {
 
   @Input() input:any
-  
+  @Output() outputmethod:EventEmitter<string>=new EventEmitter()
   @ContentChild("child", { static: false })
   child !: ElementRef;
   constructor(){
-console.log(this.input);
+    console.log(this.input);
 
+  }
+
+  click(){
+    this.outputmethod.emit('emith the value')
+    
   }
   ngAfterContentInit(): void {
    console.log('HooksComponent ********ngAfterContentINIT*******called',this.input);
